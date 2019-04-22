@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Planet Building</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<div class="main-container">
+		<div class="content-container">
+			<h1 class="topic-header content-items">Statistics</h1>
+		</div>
+	</div>
+	<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  	<script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-app.js"></script>
+
+  	<!-- Add Firebase products that you want to use -->
+  	<script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-firestore.js"></script>
+  	
+  	<!-- Init information -->
+	<script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+	<<script type="text/javascript">
+		//Initialize DOM
+		var contentContainer = document.getElementsByClassName("content-container")[0];
+		var topicText = document.getElementsByClassName("topic-text");
+		var nextBtn = document.getElementById("next");
+
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyA7ubRngdHYxkhJz15gd8-I2uqT5ShGX7o",
+			authDomain: "eas-project.firebaseapp.com",
+			databaseURL: "https://eas-project.firebaseio.com",
+			projectId: "eas-project",
+			storageBucket: "eas-project.appspot.com",
+			messagingSenderId: "1007350491336"
+		};
+		firebase.initializeApp(config);
+
+		var db = firebase.firestore();
+		var docRef = db.collection("views").doc("count");
+		docRef.get().then(function(doc) {
+		    if (doc.exists) {
+		        contentContainer.innerHTML += "<h3 class='content-items'>Total Website Views: " + doc.data().count + "</h3>";
+		    } else {
+		        // doc.data() will be undefined in this case
+		        console.log("No such document!");
+		    }
+		}).catch(function(error) {
+		    console.log("Error getting document:", error);
+		});
+
+		db.collection("clicks").get().then((querySnapshot) => {
+			var count = 0;
+		    querySnapshot.forEach((doc) => {
+		        contentContainer.innerHTML += "<h3 class='content-items topic-text'>Page " + count + " views: " + doc.data().count + "</h3>";
+		        count++;
+		    });
+		    contentContainer.innerHTML += "<a href='index.html'><button class='change-button' id='next'>Restart</button></a>";
+		});
+	</script>
+</body>
+</html>

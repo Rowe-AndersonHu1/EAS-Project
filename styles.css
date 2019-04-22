@@ -1,0 +1,83 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-image: url(images/starry-background.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.main-container {
+	/*Positioning*/
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	margin: 50px auto;
+
+	/*Sizing*/
+	width: 1000px;
+	padding: 30px;
+
+	/*Styling*/
+	background-color: rgba(0, 0, 0, 0.7);
+	border-radius: 10px;
+}
+
+.content-container {
+	/*Positioning*/
+	text-align: center;
+	padding: 20px;
+
+	/*Sizing*/
+	width: 950px;
+
+	/*Styling*/
+	background-color: white;
+	border-radius: 10px;
+}
+
+.topic-image {
+	/*Sizing*/
+	height: 200px;
+}
+
+#button-container {
+	/*Positioning*/
+	display: flex;
+	justify-content: flex-end;
+
+	/*Sizing*/
+	width: 100%;
+}
+
+.change-button {
+	/*Positioning*/
+	padding: 5px;
+
+	/*Styling*/
+	background-color: white;
+  	color: black;
+  	border: 2px solid black; 
+  	width: 100px;
+}
+
+.change-button:hover {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.6);
+}
+
+#prev {
+	display: none;
+}
+
+#stat {
+	display: none;
+}
+
+.content-items {
+	/*Positioning*/
+	margin-bottom: 20px;
+}
