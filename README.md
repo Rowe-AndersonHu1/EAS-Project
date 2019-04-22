@@ -1,5 +1,5 @@
 # EAS-Project
-A website I created for an Earth Science assignment that tracks all the views on the website and how many times each page is looked at
+A website that tracks website views, page views, and teaches about planet formation
 
 Languages Used: Javascript, HTML, CSS
 
